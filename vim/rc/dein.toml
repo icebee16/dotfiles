@@ -1,0 +1,84 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'Shougo/unite.vim'
+
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+depends = ['context_filetype.vim']
+
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+
+[[plugins]]
+repo = 'tomasr/molokai'
+hook_add = '''
+	syntax enable
+	set t_Co=256
+	autocmd MyAutoCmd VimEnter * nested colorscheme molokai
+	autocmd MyAutoCmd ColorScheme * highlight Comment ctermfg=102
+	autocmd MyAutoCmd ColorScheme * highlight Visual ctermfg=244
+	autocmd MyAutoCmd ColorScheme * highlight Normal ctermbg=none
+	autocmd MyAutoCmd ColorScheme * highlight LineNr ctermbg=none
+	autocmd MyAutoCmd ColorScheme * highlight SignColumn ctermbg=none
+	autocmd MyAutoCmd ColorScheme * highlight VertSplit ctermbg=none
+	autocmd MyAutoCmd ColorScheme * highlight NonText ctermbg=none
+'''
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_add = '''
+	let g:lightline = {
+		\'colorscheme'	:	'one',
+		\'active'	:	{
+		\	'left'	:	[	['mode', 'paste'],
+		\							['readonly', 'filename', 'modified', 'ale']	]
+		\},
+		\'component_function'	:	{
+		\	'ale'	:	'ALEGetStatusLine'
+		\}
+		\}
+'''
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+hook_add = '''
+	nnoremap <silent><C-e> :NERDTreeToggle<CR>
+'''
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+hook_add = '''
+  let g:deoplete#enable_at_startup = 1
+'''
+
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
+
+[[plugins]]
+repo = 'Shougo/neco-vim'
+
+[[plugins]]
+repo = 'Shougo/neco-syntax'
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+hook_post_update = '''
+	if dein#util#_is_windows()
+		let cmd = 'tools\\update-dll-mingw'
+	elseif dein#util#_is_cygwin()
+		let cmd = 'make -f make_cygwin.mak'
+	elseif executable('gmake')
+		let cmd = 'gmake'
+	else
+		let cmd = 'make'
+	endif
+		let g:dein#plugin.build = cmd
+	'''
+
+
+

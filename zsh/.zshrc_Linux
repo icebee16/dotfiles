@@ -1,1 +1,2 @@
-source /usr/share/zplug
+### ZPLUG_HOME
+export ZPLUG_HOME=$HOME/.zplug

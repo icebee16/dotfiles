@@ -1,0 +1,4 @@
+.DS_Store
+vim/.viminfo
+zsh/.zcompdump
+zsh/.zsh_history

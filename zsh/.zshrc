@@ -52,9 +52,13 @@ zstyle ':completion:*:cd:*' ignore-parents parent pwd
 zstyle ':completion:*:descriptions' format '%BCompleting%b %U%d%u'
 
 ### prompt ###
-#PROMPT="%(?.%{${fg[red]}%}.%{${fg[red]}%})%n${reset_color}@${fg[blue]}%m${reset_color} %~ %# "
-PROMPT="%{${fg[red]}%}%n%{${reset_color}%}@%{${fg[blue]}%}%m%{${reset_color}%} %#"
-RPROMPT="%{${fg[green]}%}[%~]%{${reset_color}%}"
+if [ -n "$SSH_CONNECTION" ]; then
+	PROMPT="%{${fg[cyan]}%}[%n]%{${reset_color}%}@%{${fg[magenta]}%}[%m]%{${reset_color}%} %# "
+	RPROMPT="%{${fg[white]}%}[%~]%{${reset_color}%}"
+else
+	PROMPT="%{${fg[cyan]}%}[%n]%{${reset_color}%}@%{${fg[green]}%}[%m]%{${reset_color}%} %# "
+	RPROMPT="%{${fg[white]}%}[%~]%{${reset_color}%}"
+fi
 
 
 ### alias and hash ###

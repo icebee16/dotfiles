@@ -1,2 +1,7 @@
 ### ZPLUG_HOME
 export ZPLUG_HOME=$HOME/.zplug
+
+### Anaconda3
+if [ -d "$HOME/anaconda3"] ; then
+		PATH="$HOME/anaconda3/bin:$PATH"
+fi

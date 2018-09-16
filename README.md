@@ -23,7 +23,7 @@ sudo chsh $USER -s $(which zsh)
 
 Vim7.4 > 8.1
 ```
-sudo add-apt-repository ppa:jonathonf
+sudo add-apt-repository ppa:jonathonf/vim
 sudo apt update
 sudo apt install vim
 ```
@@ -39,7 +39,8 @@ wget "https://repo.anaconda.com/archive/Anaconda3-5.2.0-Linux-x86_64.sh"
 sh Anaconda3-5.2.0-Linux-x86_64.sh
 ```
 
+zshを再起動してpythonのパスを変更
 ```
-
+exec $SHELL -l
 ```
 

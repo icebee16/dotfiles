@@ -59,6 +59,7 @@ zstyle ':completion:*:default' menu select=2
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 zstyle ':completion:*:descriptions' format '%BCompleting%b %U%d%u'
 
+
 ### prompt ###
 if [ -n "$SSH_CONNECTION" ]; then
 	PROMPT="%{${fg[cyan]}%}[%n]%{${reset_color}%}@%{${fg[magenta]}%}[%m]%{${reset_color}%} %# "
@@ -103,6 +104,7 @@ if ! zplug check --verbose; then
     echo; zplug install
   fi
 fi
+
 
 ## tmux for cygwin
 case ${OSTYPE} in

@@ -5,3 +5,6 @@ export ZPLUG_HOME=$HOME/.zplug
 if [ -e "$HOME/anaconda3" ] ; then
 		PATH="$HOME/anaconda3/bin:$PATH"
 fi
+
+### wsl zsh
+setopt NO_BG_NICE

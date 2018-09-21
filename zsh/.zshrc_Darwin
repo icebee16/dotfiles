@@ -6,6 +6,7 @@ export ZPLUG_HOME=/usr/local/opt/zplug
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 ### pip3 Library in MacOS
-if [ -d "$HOME/Library/Python/3.7/bin" ] ; then
-		PATH="$HOME/Library/Python/3.7/bin:$PATH"
-fi
+eval "$(pyenv init -)"
+#if [ -d "$HOME/Library/Python/3.7/bin" ] ; then
+#		PATH="$HOME/Library/Python/3.7/bin:$PATH"
+#fi

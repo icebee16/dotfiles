@@ -2,6 +2,14 @@
 export PIPENV_VENV_IN_PROJECT=true
 
 ### depend OS ###
+case ${OSTYPE} in
+	cygwin*)
+		export ZPLUG_HOME="$HOME/.zplug"
+		# for cygwin
+		alias 'python'='winpty python'
+		alias 'ipython'='winpty ipython'
+		;;
+esac
 [ -f $ZDOTDIR/.zshrc_`uname` ] && . $ZDOTDIR/.zshrc_`uname`
 
 
@@ -74,10 +82,10 @@ alias 'mv'='mv -i'
 alias 'vi'='vim'
 alias 'vz'='vim $ZDOTDIR/.zshrc'
 alias 'vv'='vim $HOME/dotfiles/vim/.vimrc'
-alias 'cat'='cat -n'
 alias 'less'='less -NM'
 alias 'reload'='exec $SHELL -l'
 alias 'ju'='jupyter notebook'
+
 
 ### zplug ###
 # zplug setting
@@ -98,6 +106,10 @@ if ! zplug check --verbose; then
   fi
 fi
 
-zplug load --verbose
-
-
+## tmux for cygwin
+case ${OSTYPE} in
+	cygwin*)
+		zplug load
+		. $ZDOTDIR/.zshrc_tmux
+		;;
+esac

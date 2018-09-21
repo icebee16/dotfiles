@@ -1,4 +1,5 @@
 # Created by newuser for 5.5.1
+export PIPENV_VENV_IN_PROJECT=true
 
 ### depend OS ###
 case ${OSTYPE} in
@@ -39,6 +40,7 @@ setopt globdots
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
 setopt extended_history
+setopt inc_append_history
 
 # change directry
 setopt auto_cd
@@ -62,7 +64,7 @@ zstyle ':completion:*:descriptions' format '%BCompleting%b %U%d%u'
 
 ### prompt ###
 if [ -n "$SSH_CONNECTION" ]; then
-	PROMPT="%{${fg[cyan]}%}[%n]%{${reset_color}%}@%{${fg[magenta]}%}[%m]%{${reset_color}%} %# "
+	PROMPT="%{${fg[cyan]}%}[%n]%{${reset_color}%}@%{${fg[red]}%}[%m]%{${reset_color}%} %# "
 	RPROMPT="%{${fg[white]}%}[%~]%{${reset_color}%}"
 else
 	PROMPT="%{${fg[cyan]}%}[%n]%{${reset_color}%}@%{${fg[green]}%}[%m]%{${reset_color}%} %# "

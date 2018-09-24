@@ -1,5 +1,6 @@
 # Created by newuser for 5.5.1
 export PIPENV_VENV_IN_PROJECT=true
+export PYTHON_PATH="/usr/local/bin/python3"
 
 ### depend OS ###
 case ${OSTYPE} in
@@ -11,6 +12,10 @@ case ${OSTYPE} in
 		;;
 esac
 [ -f $ZDOTDIR/.zshrc_`uname` ] && . $ZDOTDIR/.zshrc_`uname`
+
+
+### load Local ###
+[ -f $ZDOTDIR/.zshrc_local ] && . $ZDOTDIR/.zshrc_local
 
 
 ### key bind ###
@@ -107,11 +112,12 @@ if ! zplug check --verbose; then
   fi
 fi
 
+zplug load
 
 ## tmux for cygwin
 case ${OSTYPE} in
 	cygwin*)
-		zplug load
+#		zplug load
 		. $ZDOTDIR/.zshrc_tmux
 		;;
 esac

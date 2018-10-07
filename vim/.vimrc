@@ -47,8 +47,9 @@ set nobackup
 set nowritebackup
 set number
 set ambiwidth=double
-set tabstop=2
-set shiftwidth=2
+set expandtab
+set tabstop=4
+set shiftwidth=4
 set smartindent
 set list
 set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%

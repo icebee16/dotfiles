@@ -139,5 +139,17 @@ ssh -T git@bitbuckt.org
 conda install notebook ipykernel
 ipython kernel install --user --name py-gpu
 ```
+ついでにnbextensionsも
+```
+conda install -y -c conda-forge jupyter_contrib_nbextensions
+conda install -y -c conda-forge jupyterthemes
+jt -t chesterish -T -f roboto -fs 9 -tf merriserif -tfs 11 -nf ptsans -nfs 11 -dfs 8 -ofs 8
+```
 
+```
+conda install numpy pandas matplotlib seaborn tensorflow-gpu pillow h5py keras jupyter scikit-learny
+conda install -c anaconda scikit-image
+conda install -c vfdev-5 image_dataset_viz
+conda install -c conda-forge opencv jupyter_contrib_nbextensions jupyterthemes
+```
 

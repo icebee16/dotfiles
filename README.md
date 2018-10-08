@@ -1,6 +1,10 @@
 ## gcloud
 instanceの立ち上げ
-## ssh (必要ならば)
+```
+
+```
+
+## ssh gcloud(必要ならば)
 project単位の鍵設定
 ## setup
 ### linux 16
@@ -88,10 +92,11 @@ source $PYENV_ROOT/versions/anaconda3-5.3.0/bin/activate py-gpu
 ```
 
 tensorflow 諸々を突っ込む
+* 以降pip install は鬼門
+* どうにかconda -c を駆使
 ```
 conda install --upgrade conda
 conda install tensorflow-gpu pillow h5py keras
-# 諸々バージョン管理がごちゃるので良しなに
 ```
 
 
@@ -102,7 +107,7 @@ sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt update
 sudp apt upgrade
 sudo apt install neovim
-pip install neovim
+conda install -c conda-forge neovim
 ```
 vim本体を再インストール
 ```
@@ -118,4 +123,21 @@ dein plugin update
 ```
 :call dein#update()
 ```
+
+## ssh bitbucket (or github)
+```
+ssh-keygen -t rsa -b 4096 -C <e-mail>
+chmod 600 .ssh/id_rsa
+```
+id_rsa.pubをほにゃほにゃしてbitbucketのsshに登録
+```
+ssh -T git@bitbuckt.org
+```
+
+## jupyter setup
+```
+conda install notebook ipykernel
+ipython kernel install --user --name py-gpu
+```
+
 

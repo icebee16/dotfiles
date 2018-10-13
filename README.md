@@ -154,7 +154,7 @@ jt -t chesterish -T -f roboto -fs 9 -tf merriserif -tfs 11 -nf ptsans -nfs 11 -d
 ```
 
 ```
-conda install numpy pandas matplotlib seaborn tensorflow-gpu pillow h5py keras jupyter scikit-learny
+conda install numpy pandas matplotlib seaborn tensorflow-gpu pillow h5py keras jupyter scikit-learn
 conda install -c anaconda scikit-image
 conda install -c vfdev-5 image_dataset_viz
 conda install -c conda-forge opencv jupyter_contrib_nbextensions jupyterthemes

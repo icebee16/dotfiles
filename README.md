@@ -1,5 +1,9 @@
 ## TODO
 現状だとlinuxデフォルトのpython3.5をvim8が参照してしまう。後から入れた環境に参照が向くような手配が必要。
+vim8しんどいのでnvimに移行
+let g:python_prog_hostをいい感じにする。
+deopletejediもあわせてどうにかする。
+anaconda仮想環境も含めて云々
 
 ## gcloud
 instanceの立ち上げ

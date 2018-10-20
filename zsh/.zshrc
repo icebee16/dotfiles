@@ -14,6 +14,9 @@ autoload -Uz colors; colors
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
+## kaggle API ##
+# https://github.com/Kaggle/kaggle-api
+export KAGGLE_CONFIG_DIR="$XDG_CONFIG_HOME/.kaggle"
 
 #====================#
 #   python setting   #

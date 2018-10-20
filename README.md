@@ -14,7 +14,35 @@ instanceの立ち上げ
 ## ssh gcloud(必要ならば)
 project単位の鍵設定
 ## setup
-### linux 16
+### macOS High Sierra
+#### pipenv + pyenv
+ひとまずglobal環境に突っ込む
+```
+# 3.7.0はtensorflowが転けるので3.6.6
+pyenv install 3.6.6
+pyenv global 3.6.6
+```
+プロジェクトがあるなら該当プロジェクトディレクトリに移動した上で
+```
+pipenv --python 3.6.6
+```
+上記でプロジェクト直下にできるPipfileｆはgitignore 
+
+#### neovim
+```
+mkdir $XDG_CONFIG_HOME/nvim
+mkdir $XDG_CONFIG_HOME/nvim/rc
+ln -s $HOME/dotfiles/vim/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
+ln -s $HOME/dotfiles/vim/rc/dein.toml $XDG_CONFIG_HOME/nvim/rc 
+ln -s $HOME/dotfiles/vim/rc/dein_lazy.toml $XDG_CONFIG_HOME/nvim/rc 
+```
+
+#### ALE + flake8
+```
+pip install flake8
+```
+
+### Ubuntu 16.04 LTS
 root passwordの設定
 ```
 sudo passwd root
@@ -29,7 +57,7 @@ curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/instal
 git clone https://github.com/icebee16/dotfiles
 touch dotfiles/zsh/.zshrc_local
 ln -s $HOME/dotfiles/zsh/.zshenv $HOME/
-ln -s $HOME/dotfiles/vim/.vimrc $HOME/
+ln -s $HOME/dotfiles/vim/
 sudo chsh $USER -s $(which zsh)
 ```
 再loginでzshから起動

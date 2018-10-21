@@ -42,6 +42,8 @@ ln -s $HOME/dotfiles/vim/rc/dein_lazy.toml $XDG_CONFIG_HOME/nvim/rc
 pip install flake8
 ```
 
+
+
 ### Ubuntu 16.04 LTS
 root passwordの設定
 ```
@@ -51,15 +53,17 @@ sudo passwd root
 HOMEにて
 ```
 sudp apt update
-sudo apt upgrade
-sudo apt install git build-essential tmux htop zsh
+sudo apt upgrade -y
+sudo apt install -y git build-essential tmux htop zsh
 curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
 git clone https://github.com/icebee16/dotfiles
 touch dotfiles/zsh/.zshrc_local
 ln -s $HOME/dotfiles/zsh/.zshenv $HOME/
-ln -s $HOME/dotfiles/vim/
 sudo chsh $USER -s $(which zsh)
 ```
+前述のneovimの設定を行うべき
+
+
 再loginでzshから起動
 ```
 rm -f .bash_history .bash_logout .bashrc
@@ -81,7 +85,7 @@ exec $SHELL -l
 ##### gpuあり(Tesla K80)
 ```
 sudo apt update
-sudp apt upgrade
+sudp apt upgrade -y
 # nvidia driver
 sudo apt install -y nvidia-375 nvidia-settings
 
@@ -90,7 +94,7 @@ wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/
 sudo dpkg -i cuda-repo-ubuntu1604_9.0.176-1_amd64.deb
 sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub
 sudo apt update
-sudp apt upgrade
+sudp apt upgrade -y
 sudo apt install cuda=9.0.176-1
 sudo apt update
 sudp apt upgrade
@@ -111,17 +115,17 @@ source $ZDOTDIR/.zshrc
 
 pyenv環境の構築
 ```
-git clone https://github.com/yyuu/pyenv.git ~/.pyenv
-echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/dotfiles/zsh/.zshrc_local
-echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/dotfiles/zsh/.zshrc_local
-echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/dotfiles/zsh/.zshrc_local
+git clone https://github.com/yyuu/pyenv.git $XDG_DATA_HOME/.pyenv
+# echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/dotfiles/zsh/.zshrc_local
+# echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/dotfiles/zsh/.zshrc_local
+# echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/dotfiles/zsh/.zshrc_local
 source $ZDOTDIR/.zshrc
-pyenv install anaconda3-5.3.0
-pyenv global anaconda3-5.3.0
 ```
 
 condaの設定
 ```
+pyenv install anaconda3-5.3.0
+pyenv global anaconda3-5.3.0
 conda create -n py-gpu python=3.5
 source $PYENV_ROOT/versions/anaconda3-5.3.0/bin/activate py-gpu
 ```
@@ -187,4 +191,72 @@ conda install -c anaconda scikit-image
 conda install -c vfdev-5 image_dataset_viz
 conda install -c conda-forge opencv jupyter_contrib_nbextensions jupyterthemes neovim
 ```
+
+### Windows subsystem for linux (Ubuntu 18.04 LTS)
+#### Ubuntu 18.04 LTS 入手
+Microsoft Storeから
+
+#### wsl-terminal の準備
+(https://github.com/goreliu/wsl-terminal) より入手
+
+各種設定、よしなに
+
+#### 基本的な奴
+
+```
+cd
+sudo apt update
+sudo apt upgrade -y
+sudo apt install -y git tmux htop tree
+```
+
+#### zsh + zplug
+```
+zsh
+curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
+git clone https://github.com/icebee16/dotfiles
+touch dotfiles/zsh/.zshrc_local
+echo 'cd' >> $HOME/dotfiles/zsh/.zshrc_local 
+ln -s $HOME/dotfiles/zsh/.zshenv $HOME/
+exit
+```
+
+wsl-terminal/etc/esl-terminal.conf に以下
+```
+shell=/bin/zsh
+```
+
+zshでloginして後処理
+```
+rm -f .bash_history .bash_logout .bashrc .profile
+```
+
+#### dotfiles の反映
+```
+mkdir .config .cache .local .local/share
+mkdir $XDG_CONFIG_HOME/nvim
+ln -s $HOME/dotfiles/vim/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
+```
+#### pyenv + pipenv
+参考： https://github.com/pyenv/pyenv/wiki/common-build-problems
+```
+git clone https://github.com/yyuu/pyenv.git $XDG_DATA_HOME/.pyenv
+
+sudo apt install -y make build-essential libssl-dev zlib1g-dev libbz2-dev \
+libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev \
+xz-utils tk-dev libffi-dev liblzma-dev
+
+pyenv install 3.6.6
+pyenv global 3.6.6
+pip install pipenv
+```
+
+#### neovim の設定
+```
+sudo apt-add-repository ppa:neovim-ppa/stable
+sudo apt update
+sudo apt install -y neovim
+pip install neovim
+```
+# ssh(git ,bitbucket ,gcloud)
 

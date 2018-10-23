@@ -288,3 +288,10 @@ gcloud init
 gcloud components update
 ```
 
+```
+echo 'export LIB_CLANG="/usr/lib/llvm-6.0/lib/libclang-6.0.so"' >> ~/dotfiles/zsh/.zshrc_local
+# ほかにもごにょごにょ
+```
+
+
+

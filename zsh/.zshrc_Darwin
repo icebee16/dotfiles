@@ -10,3 +10,7 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 #if [ -d "$HOME/Library/Python/3.7/bin" ] ; then
 #		PATH="$HOME/Library/Python/3.7/bin:$PATH"
 #fi
+
+### libclang path for deoplete-clang
+export LIB_CLANG="/usr/local/Cellar/llvm/7.0.0/lib/libclang.dylib"
+export CLANG_HEADER="/usr/local/Cellar/llvm/7.0.0/lib/clang"

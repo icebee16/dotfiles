@@ -258,5 +258,33 @@ sudo apt update
 sudo apt install -y neovim
 pip install neovim
 ```
-# ssh(git ,bitbucket ,gcloud)
+#### ssh(git ,bitbucket)
+```
+ssh-keygen -t rsa -b 4096 -C <e-mail>
+chmod 600 .ssh/id_rsa
+```
+id_rsa.pubをほにゃほにゃしてbitbucketのsshに登録
+```
+ssh -T git@github.com
+ssh -T git@bitbuckt.org
+```
+
+#### gsutil + google-cloud-SDK
+```
+curl https://sdk.cloud.google.com | zsh
+reload
+```
+install先は$HOME/.local/share
+
+設定は$HOME/dotfiles/zsh/.zshrc_local
+
+https://cloud.google.com/sdk/downloads?hl=JA#linux をそのまま
+```
+export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
+echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+sudo apt update && sudo apt install google-cloud-sdk\
+gcloud init
+gcloud components update
+```
 

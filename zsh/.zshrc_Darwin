@@ -12,5 +12,5 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 #fi
 
 ### libclang path for deoplete-clang
-export LIBCLANG="/Library/Developer/CommandLineTools/usr/lib/libclang.dylib"
-
+export LIB_CLANG="/usr/local/Cellar/llvm/7.0.0/lib/libclang.dylib"
+export CLANG_HEADER="/usr/local/Cellar/llvm/7.0.0/lib/clang"

@@ -11,11 +11,27 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'w0rp/ale'
+repo = 'Vimjas/vim-python-pep8-indent'
 on_ft = ['python']
+
+[[plugins]]
+repo = 'zchee/deoplete-clang'
+on_ft = ['cpp', 'c', 'cmake']
+depends = 'deoplete.nvim'
+hook_add = '''
+    let g:deoplete#sources#clang#libclang_path = $LIB_CLANG
+    let g:deoplete#sources#clang#clang_header = $CLANG_HEADER
+'''
+
+[[plugins]]
+repo = 'w0rp/ale'
+on_ft = ['python', 'cpp', 'c', 'cmake']
 hook_add = '''
 	let g:ale_linters = {
 		\	'python'	:	['flake8'],
+        \   'cpp'       :   ['gcc'],
+        \   'c'         :   ['gcc'],
+        \   'cmake'     :   ['gcc']
 		\	}
 
 	let g:ale_sign_column_always = 1
@@ -31,8 +47,3 @@ hook_add = '''
 	nnoremap <silent> <C-k> <Plug>(ale_previous_wrap)
 	nnoremap <silent> <C-j> <Plug>(ale_next_wrap)
 '''
-
-[[plugins]]
-repo = 'Vimjas/vim-python-pep8-indent'
-on_ft = ['python']
-

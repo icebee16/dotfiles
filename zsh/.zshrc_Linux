@@ -6,5 +6,9 @@ if [ -e "$HOME/anaconda3" ] ; then
 		PATH="$HOME/anaconda3/bin:$PATH"
 fi
 
+# libclang path for deoplete-clang
+export LIB_CLANG="/usr/lib/x86_64-linux-gnu/libclang-6.0.so.1"
+export CLANG_HEADER="/usr/lib/llvm-6.0/lib/clang"
+
 ### wsl zsh
 setopt NO_BG_NICE

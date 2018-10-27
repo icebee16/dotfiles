@@ -66,6 +66,7 @@ set laststatus=2
 set mouse=a
 set hlsearch
 set viminfo+=n~/dotfiles/vim/.viminfo
+set clipboard+=unnamedplus
 
 ""=============""
 ""   keybind   ""

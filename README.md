@@ -1,9 +1,4 @@
 ## TODO
-現状だとlinuxデフォルトのpython3.5をvim8が参照してしまう。後から入れた環境に参照が向くような手配が必要。
-vim8しんどいのでnvimに移行
-let g:python_prog_hostをいい感じにする。
-deopletejediもあわせてどうにかする。
-anaconda仮想環境も含めて云々
 
 ## gcloud
 instanceの立ち上げ
@@ -287,11 +282,25 @@ sudo apt update && sudo apt install google-cloud-sdk\
 gcloud init
 gcloud components update
 ```
-
+#### c++環境設定
 ```
 echo 'export LIB_CLANG="/usr/lib/llvm-6.0/lib/libclang-6.0.so"' >> ~/dotfiles/zsh/.zshrc_local
 # ほかにもごにょごにょ
 ```
 
+#### jupyter notebook
+```
+python3 -m pip install --upgrade pip
+python3 -m pip install jupyter
+jupyter notebook --generate-config
+```
+jupyter config の設定
 
+参考：https://www.reddit.com/r/bashonubuntuonwindows/comments/7rmdd4/how_can_i_open_a_jupyter_notebook_on_wsl_in_my/
+```
+c.JupyterApp.config_file = '/home/icebee/.config/jupyter/jupyter_notebook_config.py'
+import webbrowser
+webbrowser.register('Vivaldi', None, webbrowser.GenericBrowser('/mnt/c/Users...hogehoge/vivaldi.exe'))
+c.NotebookApp.browser = 'Vivaldi'
+```
 

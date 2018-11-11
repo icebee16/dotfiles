@@ -92,6 +92,7 @@ hook_add = '''
     let g:neoterm_autoinsert = 1
     let g:neoterm_default_mod = 'belowright'
     nnoremap <silent> <C-e><C-e> :TREPLSendFile<CR>
+    nnoremap <silent> <C-e>p :T cd "$(dirname  %)";python  %<CR>
     nnoremap <silent> <C-e>c :T cd "$(dirname  %)";g++  %;./a.out<CR>
     nnoremap <silent> vt :Ttoggle<CR>
 '''

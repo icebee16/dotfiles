@@ -37,6 +37,14 @@ ln -s $HOME/dotfiles/vim/rc/dein_lazy.toml $XDG_CONFIG_HOME/nvim/rc
 pip install flake8
 ```
 
+#### LightGBM
+```
+brew install cmake
+brew install gcc@7
+export CXX=g++-7 CC=gcc-7
+pip install --no-binary lightgbm lightgbm
+
+```
 
 
 ### Ubuntu 16.04 LTS

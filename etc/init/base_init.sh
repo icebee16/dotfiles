@@ -2,6 +2,11 @@
 
 set -eu
 
+# global
+echo "give me e-mail"
+read EMAIL
+
+# by OS
 case ${OSTYPE} in
     darwin*)
         echo "Running on OSX"

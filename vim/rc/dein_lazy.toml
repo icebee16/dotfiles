@@ -47,3 +47,10 @@ hook_add = '''
 	nnoremap <silent> <C-k> <Plug>(ale_previous_wrap)
 	nnoremap <silent> <C-j> <Plug>(ale_next_wrap)
 '''
+
+[[plugins]]
+repo = 'vim-scripts/dbext.vim'
+on_ft = ['sql']
+hook_add = '''
+    let g:dbext_default_history_file = $XDG_DATA_HOME."/nvim/dbext_history"
+'''

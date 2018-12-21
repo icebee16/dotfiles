@@ -8,4 +8,4 @@ deploy:
 
 # init
 init:
-	@$(foreach val, $(wildcard ./etc/init/*.sh), bash $(val);)
+	bash etc/init/base_init.sh

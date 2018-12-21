@@ -15,7 +15,7 @@ case ${OSTYPE} in
                 # Ubuntu
                 # distri_name="ubuntu"
                 echo "Running on ubuntu"
-                source ubuntu.sh
+                source etc/init/ubuntu.sh
             else
                 # Debian
                 distri_name="debian"

@@ -3,8 +3,8 @@
 set -eu
 
 # global
-# echo "give me e-mail"
-# read EMAIL
+echo "give me e-mail"
+read EMAIL
 
 # by OS
 case ${OSTYPE} in

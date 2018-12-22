@@ -5,8 +5,8 @@ set -eu
 # global
 echo "give me username."
 read USER_NAME
-echo "give me e-mail."
-read EMAIL
+# echo "give me e-mail."
+# read EMAIL
 
 # by OS
 case ${OSTYPE} in

@@ -8,8 +8,9 @@ deploy:
 
 # init
 init:
-	@read -p "give email\n" mail; \
-		export EMAIL="$$mail"; \
+	@read -p "give email" mail; \
+		echo "thanks"; \
+		export EMAIL="$(mail)"; \
 		echo $(EMAIL)
 	@echo $(EMAIL)
 	@bash etc/init/bash_init.sh

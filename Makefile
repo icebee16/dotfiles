@@ -8,6 +8,9 @@ deploy:
 
 # init
 init:
-	bash etc/init/bash_init.sh
-	chsh $(USER_NAME) -s $(which zsh)
-	zsh etc/init/zsh_init.sh
+	@echo "give me e-mail"
+	@read EMAIL \
+		export EMAIL=$(EMAIL)
+	@echo $(EMAIL)
+	@bash etc/init/bash_init.sh
+	@zsh etc/init/zsh_init.sh

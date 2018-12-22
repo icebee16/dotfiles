@@ -10,7 +10,7 @@ deploy:
 init:
 	@read -p "give email" mail; \
 		echo "thanks"; \
-		export EMAIL="$(mail)"; \
+		export EMAIL="$mail"; \
 		echo $(EMAIL)
 	@echo $(EMAIL)
 	@bash etc/init/bash_init.sh

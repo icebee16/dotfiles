@@ -8,8 +8,9 @@ deploy:
 
 # init
 init:
-	echo $(USER)
+	echo "give me user name"
+	read USER_NAME
+	echo $(USER_NAME)
 	bash etc/init/bash_init.sh
-	echo $(USER)
-	chsh $(USER) -s $(which zsh)
+	chsh $(USER_NAME) -s $(which zsh)
 	zsh etc/init/zsh_init.sh

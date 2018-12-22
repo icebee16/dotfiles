@@ -8,10 +8,7 @@ deploy:
 
 # init
 init:
-	@read -p "give email" mail; \
-		echo "thanks"; \
-		export EMAIL="$mail"; \
-		echo $(EMAIL)
+	@$(eval EMAIL := $(read -p "give email : " mail))
 	@echo $(EMAIL)
 	@bash etc/init/bash_init.sh
 	@zsh etc/init/zsh_init.sh

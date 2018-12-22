@@ -9,7 +9,7 @@ deploy:
 # init
 init:
 	@read -p "give email : " mail; \
-		$(eval EMAIL := $${mail})
+		$(eval EMAIL := ${mail})
 	@echo $(EMAIL)
 	@bash etc/init/bash_init.sh
 	@zsh etc/init/zsh_init.sh

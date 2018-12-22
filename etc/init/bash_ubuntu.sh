@@ -1,3 +1,8 @@
+# variance
+read -p "give me uname" USER_NAME
+echo $USER_NAME
+read y
+
 # XDG Base Directory
 # https://wiki.archlinux.org/index.php/XDG_Base_Directory
 XDG_CONFIG_HOME=$HOME/.config

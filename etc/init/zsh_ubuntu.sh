@@ -1,3 +1,6 @@
+# variance
+read -p "give me e-mail" EMAIL
+
 # XDG Base Directory
 # https://wiki.archlinux.org/index.php/XDG_Base_Directory
 XDG_CONFIG_HOME=$HOME/.config

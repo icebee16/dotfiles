@@ -20,3 +20,4 @@ apt install zsh -y
 touch $HOME/dotfiles/zsh/.zshrc_local
 curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
 ln -s $HOME/dotfiles/zsh/.zshenv $HOME/
+chsh $USER_NAME -s $(which zsh)

@@ -3,8 +3,8 @@
 set -eu
 
 # global
-echo "give me e-mail"
-read EMAIL
+# echo "give me e-mail"
+# read EMAIL
 
 # by OS
 case ${OSTYPE} in
@@ -20,7 +20,7 @@ case ${OSTYPE} in
                 # Ubuntu
                 # distri_name="ubuntu"
                 echo "Running on ubuntu"
-                source etc/init/ubuntu.sh
+                source etc/init/zsh_ubuntu.sh
             else
                 # Debian
                 distri_name="debian"

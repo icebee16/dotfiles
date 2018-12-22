@@ -3,7 +3,9 @@
 set -eu
 
 # global
-echo "give me e-mail"
+echo "give me username."
+read USER_NAME
+echo "give me e-mail."
 read EMAIL
 
 # by OS

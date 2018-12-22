@@ -8,4 +8,6 @@ deploy:
 
 # init
 init:
-	bash etc/init/base_init.sh
+	bash etc/init/bash_init.sh
+	chsh $USER -s $(which zsh)
+	zsh etc/init/zsh_init.sh

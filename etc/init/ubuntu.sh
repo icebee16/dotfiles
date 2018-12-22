@@ -1,8 +1,8 @@
 # XDG Base Directory
 # https://wiki.archlinux.org/index.php/XDG_Base_Directory
-XDG_CONFIG_HOME = $HOME/.config
-XDG_CACHE_HOME = $HOME/.cache
-XDG_DATA_HOME = $HOME/.local/share
+XDG_CONFIG_HOME=$HOME/.config
+XDG_CACHE_HOME=$HOME/.cache
+XDG_DATA_HOME=$HOME/.local/share
 for dir in $XDG_CONFIG_HOME $XDG_CACHE_HOME $XDG_DATA_HOME
 do
     if [! -d $dir]; then

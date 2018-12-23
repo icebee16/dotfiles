@@ -1,3 +1,8 @@
+## one liner
+```
+sudo apt install git make -y && git clone https://github.com/icebee16/dotfiles && cd dotfiles && make init && exit
+```
+
 ## TODO
 
 ## gcloud

@@ -21,7 +21,6 @@ case ${OSTYPE} in
                 # Ubuntu
                 # distri_name="ubuntu"
                 echo "Running on ubuntu"
-                source $HOME/.zshenv
                 source etc/init/zsh_ubuntu.sh
             else
                 # Debian

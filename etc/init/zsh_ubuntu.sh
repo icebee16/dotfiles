@@ -22,7 +22,7 @@ apt install -y neovim
 pip install neovim
 
 # ssh
-ssh-keygen -t rsa -b 4096 -C $EMALE
+ssh-keygen -t rsa -b 4096 -C $EMAIL
 chmod 600 $HOME/.ssh/id_rsa
 
 # clean up

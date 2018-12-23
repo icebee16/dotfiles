@@ -11,6 +11,9 @@ XDG_DATA_HOME=$HOME/.local/share
 # pyenv
 git clone https://github.com/yyuu/pyenv.git $XDG_DATA_HOME/.pyenv
 apt install -y make libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev
+set +e
+source $ZDOTDIR/.zshrc
+set -e
 pyenv install 3.6.6
 pyenv global 3.6.6
 

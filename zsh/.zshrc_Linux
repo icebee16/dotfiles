@@ -12,3 +12,6 @@ export CLANG_HEADER="/usr/lib/llvm-6.0/lib/clang"
 
 ### wsl zsh
 setopt NO_BG_NICE
+
+### jupyter notebook
+alias 'jn'='jupyter notebook --config="/home/icebee/.config/jupyter/jupyter_notebook_config.py"'

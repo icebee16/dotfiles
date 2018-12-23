@@ -7,13 +7,7 @@ read USER_NAME
 XDG_CONFIG_HOME=$HOME/.config
 XDG_CACHE_HOME=$HOME/.cache
 XDG_DATA_HOME=$HOME/.local/share
-for dir in $XDG_CONFIG_HOME $XDG_CACHE_HOME $XDG_DATA_HOME
-do
-    if [! -d $dir]; then
-        mkdir $dir
-    fi
-done
-
+mkdir -p $XDG_CONFIG_HOME $XDG_CACHE_HOME $XDG_DATA_HOME
 
 # apt install
 apt update && apt upgrade -y

@@ -3,7 +3,6 @@
 # init
 source $HOME/.zshenv
 source $ZDOTDIR/.zprofile
-source $ZDOTDIR/.zshrc
 
 # error handling
 set -eu

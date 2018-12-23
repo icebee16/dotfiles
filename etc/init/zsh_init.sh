@@ -2,6 +2,11 @@
 
 set -eu
 
+# init
+source $HOME/.zshenv
+source $ZDOTDIR/.zprofile
+source $ZDOTDIR/.zshrc
+
 # by OS
 case ${OSTYPE} in
     darwin*)
@@ -16,6 +21,7 @@ case ${OSTYPE} in
                 # Ubuntu
                 # distri_name="ubuntu"
                 echo "Running on ubuntu"
+                source $HOME/.zshenv
                 source etc/init/zsh_ubuntu.sh
             else
                 # Debian

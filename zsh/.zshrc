@@ -30,7 +30,7 @@ eval "$(pyenv init -)"
 # https://github.com/pypa/pipenv
 export PIPENV_VENV_IN_PROJECT=true
 export WORKON_HOME="$XDG_DATA_HOME/.virtualenvs"
-eval "$(pipenv --completion)"
+# eval "$(pipenv --completion)"
 ## python path ##
 #export PYTHON_PATH="/usr/local/bin/python3"
 

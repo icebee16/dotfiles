@@ -1,11 +1,12 @@
 #!/bin/bash
 
-set -eu
-
 # init
 source $HOME/.zshenv
 source $ZDOTDIR/.zprofile
 source $ZDOTDIR/.zshrc
+
+# error handling
+set -eu
 
 # by OS
 case ${OSTYPE} in

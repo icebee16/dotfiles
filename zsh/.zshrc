@@ -122,12 +122,11 @@ zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
 # install zplug
-zplug install
-# if ! zplug check --verbose; then
-#   printf 'Install? [y/N]: '
-#   if read -q; then
-#     echo; zplug install
-#   fi
-# fi
+if ! zplug check --verbose; then
+  printf 'Install? [y/N]: '
+  if read -q; then
+    echo; zplug install
+  fi
+fi
 # plugin load
 zplug load

@@ -30,6 +30,9 @@ pip install jupyter_contrib_nbextensions
 pip install jupyterthemes
 jt -t chesterish -T -f roboto -fs 9 -tf merriserif -tfs 11 -nf ptsans -nfs 11 -dfs 8 -ofs 8
 
+# kaggle
+pip install kaggle
+
 # ssh
 echo "give me e-mail"
 read EMAIL

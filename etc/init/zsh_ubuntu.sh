@@ -12,6 +12,7 @@ source $ZDOTDIR/.zshrc
 set -e
 pyenv install 3.6.6
 pyenv global 3.6.6
+pip install pipenv
 
 # neovim
 mkdir $XDG_CONFIG_HOME/nvim
@@ -20,6 +21,7 @@ sudo apt-add-repository ppa:neovim-ppa/stable
 sudo apt update
 sudo apt install -y neovim
 pip install neovim
+pip install flake8
 
 # ssh
 echo "give me e-mail"

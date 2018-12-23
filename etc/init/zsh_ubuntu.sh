@@ -1,5 +1,6 @@
 # variance
-read -p "give me e-mail" EMAIL
+echo "give me e-mail"
+read EMAIL
 
 # XDG Base Directory
 # https://wiki.archlinux.org/index.php/XDG_Base_Directory

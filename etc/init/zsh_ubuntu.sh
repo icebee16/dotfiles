@@ -12,6 +12,7 @@ source $ZDOTDIR/.zshrc
 set -e
 pyenv install 3.6.6
 pyenv global 3.6.6
+pip install pip==18.0
 pip install pipenv
 
 # neovim
@@ -23,6 +24,12 @@ sudo apt install -y neovim
 pip install neovim
 pip install flake8
 
+# jupyter
+pip install jupyter
+pip install jupyter_contrib_nbextensions
+pip install jupyterthemes
+jt -t chesterish -T -f roboto -fs 9 -tf merriserif -tfs 11 -nf ptsans -nfs 11 -dfs 8 -ofs 8
+
 # ssh
 echo "give me e-mail"
 read EMAIL
@@ -31,4 +38,3 @@ chmod 600 $HOME/.ssh/id_rsa
 
 # clean up
 rm -f $HOME/.bash_history $HOME/.bash_logout $HOME/.bashrc
-exit

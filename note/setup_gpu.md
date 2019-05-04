@@ -55,3 +55,15 @@ sudo dpkg -i libcudnn7-dev_7.5.1.10-1+cuda9.2_amd64.deb
 sudo dpkg -i libcudnn7-doc_7.5.1.10-1+cuda9.2_amd64.deb
 rm libcudnn7*
 ```
+
+## post process
+```
+pip install torch torchvision
+pip install pandas
+pip install numba
+pip install "dask[complete]"
+pip install seaborn
+pip install librosa
+pip install fastprogress
+pip install cython
+```

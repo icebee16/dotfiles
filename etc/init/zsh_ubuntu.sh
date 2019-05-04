@@ -46,9 +46,6 @@ echo 'mkl_libs = mkl_rt' >> $HOME/.numpy-site.cfg
 echo 'lapack_libs =' >> $HOME/.numpy-site.cfg
 pip install --no-binary :all: numpy
 # scipy
-set +e
-source $ZDOTDIR/.zshrc
-set -e
 sudo apt install -y gfortran
 pip install --no-binary :all: scipy
 

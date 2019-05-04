@@ -21,7 +21,7 @@ sudo apt install -y intel-mkl-2019.3-062
 # ====== #
 # >> pyenv
 git clone https://github.com/yyuu/pyenv.git $XDG_DATA_HOME/.pyenv
-sudo apt-get install -y make libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev
+sudo apt install -y make libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev
 set +e
 source $ZDOTDIR/.zshrc
 set -e

@@ -28,7 +28,6 @@ set -e
 pyenv install 3.6.8
 pyenv global 3.6.8
 pip install -U pip
-pip install pipenv
 
 # >> neovim
 mkdir $XDG_CONFIG_HOME/nvim

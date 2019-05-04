@@ -15,6 +15,10 @@ sudo apt-key add GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB
 sudo wget https://apt.repos.intel.com/setup/intelproducts.list -O /etc/apt/sources.list.d/intelproducts.list
 sudo apt update
 sudo apt install -y intel-mkl-2019.3-062
+# MKL path
+MKL_ROOT_DIR=/opt/intel/mkl
+LD_LIBRARY_PATH=$MKL_ROOT_DIR/lib/intel64:/opt/intel/lib/intel64_lin:$LD_LIBRARY_PATH
+LIBRARY_PATH=$MKL_ROOT_DIR/lib/intel64:$LIBRARY_PATH
 
 # ====== #
 # python #

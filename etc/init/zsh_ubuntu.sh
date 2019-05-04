@@ -30,6 +30,7 @@ pyenv global 3.6.8
 pip install -U pip
 
 # >> numpy, scipy (IntelMKL build)
+# numpy
 touch $HOME/.numpy-site.cfg
 echo '[mkl]' >> $HOME/.numpy-site.cfg
 echo 'library_dirs = /opt/intel/mkl/lib/intel64' >> $HOME/.numpy-site.cfg
@@ -37,6 +38,8 @@ echo 'include_dirs = /opt/intel/mkl/include' >> $HOME/.numpy-site.cfg
 echo 'mkl_libs = mkl_rt' >> $HOME/.numpy-site.cfg
 echo 'lapack_libs =' >> $HOME/.numpy-site.cfg
 pip install --no-binary :all: numpy
+# scipy
+sudo apt install -y gfortran
 pip install --no-binary :all: scipy
 
 # >> neovim

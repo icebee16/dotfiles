@@ -14,7 +14,7 @@ wget https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS-20
 sudo apt-key add GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB
 sudo wget https://apt.repos.intel.com/setup/intelproducts.list -O /etc/apt/sources.list.d/intelproducts.list
 sudo apt update
-sudo apt install intel-mkl-2019.3-062
+sudo apt install -y intel-mkl-2019.3-062
 
 # ====== #
 # python #

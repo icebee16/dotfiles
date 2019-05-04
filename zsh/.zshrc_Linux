@@ -15,3 +15,7 @@ setopt NO_BG_NICE
 
 ## jupyter notebook
 alias 'jn'='jupyter notebook --config="/home/icebee/.config/jupyter/jupyter_notebook_config.py"'
+
+## CUDA and cuDNN paths"
+export PATH=/usr/local/cuda/bin:${PATH}
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64:${LD_LIBRARY_PATH}

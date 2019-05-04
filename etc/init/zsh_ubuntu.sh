@@ -11,7 +11,7 @@ XDG_DATA_HOME=$HOME/.local/share
 # ======== #
 # https://software.intel.com/en-us/articles/installing-intel-free-libs-and-python-apt-repo
 wget https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB
-apt-key add GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB
+sudo apt-key add GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB
 wget https://apt.repos.intel.com/setup/intelproducts.list -O /etc/apt/sources.list.d/intelproducts.list
 sudo apt update
 sudo apt install intel-mkl-2019.3-062

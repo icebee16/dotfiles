@@ -38,10 +38,10 @@ curl -OL https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86
 sudo dpkg -i cuda-repo-ubuntu1804_10.1.105-1_amd64.deb
 sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
 sudo apt-get update # 必要
-sudo apt-get install cuda
-echo -e "\n## CUDA and cuDNN paths"  >> ~/.bashrc
-echo 'export PATH=/usr/local/cuda/bin:${PATH}' >> ~/.bashrc
-echo 'export LD_LIBRARY_PATH=/usr/local/cuda/lib64:${LD_LIBRARY_PATH}' >> ~/.bashrc
+sudo apt-get install cuda-10-0
+echo -e "\n## CUDA and cuDNN paths"  >> ~/dotfiles/zsh/.zshrc_local
+echo 'export PATH=/usr/local/cuda/bin:${PATH}' >> ~/dotfiles/zsh/.zshrc_local
+echo 'export LD_LIBRARY_PATH=/usr/local/cuda/lib64:${LD_LIBRARY_PATH}' >> ~/dotfiles/zsh/.zshrc_local
 sudo reboot
 # need reconnection
 rm cuda-repo-ubuntu1804_10.1.105-1_amd64.deb

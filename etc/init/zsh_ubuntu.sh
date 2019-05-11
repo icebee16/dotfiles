@@ -32,8 +32,8 @@ sudo apt install -y make libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsql
 set +e
 source $ZDOTDIR/.zshrc
 set -e
-pyenv install 3.6.8
-pyenv global 3.6.8
+pyenv install 3.6.6
+pyenv global 3.6.6
 pip install -U pip
 
 # >> numpy, scipy (IntelMKL build)

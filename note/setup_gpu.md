@@ -50,15 +50,16 @@ rm cuda-repo-ubuntu1804_10.1.105-1_amd64.deb
 # >> cuDNN v7.5.1
 # loginの必要があり自分で公式からポチポチ落としてくるしかない。　https://developer.nvidia.com/rdp/cudnn-download
 # Runtime, Developer, Code Samplesの三種類
-sudo dpkg -i libcudnn7_7.5.1.10-1+cuda9.2_amd64.deb
-sudo dpkg -i libcudnn7-dev_7.5.1.10-1+cuda9.2_amd64.deb
-sudo dpkg -i libcudnn7-doc_7.5.1.10-1+cuda9.2_amd64.deb
+sudo dpkg -i libcudnn7_7.5.1.10-1+cuda10.0_amd64.deb
+sudo dpkg -i libcudnn7-dev_7.5.1.10-1+cuda10.0_amd64.deb
+sudo dpkg -i libcudnn7-doc_7.5.1.10-1+cuda10.0_amd64.deb
 rm libcudnn7*
 ```
 
 ## post process
 ```
-pip install torch torchvision
+pip install https://download.pytorch.org/whl/cu100/torch-1.1.0-cp36-cp36m-linux_x86_64.whl
+pip install torchvision
 pip install pandas
 pip install numba
 pip install "dask[complete]"

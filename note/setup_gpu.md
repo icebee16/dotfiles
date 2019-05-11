@@ -32,19 +32,19 @@ cd dotfiles
 make init
 exit
 
-# >> CUDA Toolkit 9.2
-# https://developer.nvidia.com/cuda-92-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1604&target_type=debnetwork
-curl -OL http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_9.2.148-1_amd64.deb
-sudo dpkg -i cuda-repo-ubuntu1604_9.2.148-1_amd64.deb
-sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub
-sudo apt update # 必要
-sudo apt install -y cuda-9-2
+# >> CUDA Toolkit 10.0.130
+# https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=debnetwork
+curl -OL https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-repo-ubuntu1804_10.1.105-1_amd64.deb
+sudo dpkg -i cuda-repo-ubuntu1804_10.1.105-1_amd64.deb
+sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
+sudo apt-get update # 必要
+sudo apt-get install cuda
 echo -e "\n## CUDA and cuDNN paths"  >> ~/.bashrc
 echo 'export PATH=/usr/local/cuda/bin:${PATH}' >> ~/.bashrc
 echo 'export LD_LIBRARY_PATH=/usr/local/cuda/lib64:${LD_LIBRARY_PATH}' >> ~/.bashrc
 sudo reboot
 # need reconnection
-rm cuda-repo-ubuntu1604_9.2.148-1_amd64.deb
+rm cuda-repo-ubuntu1804_10.1.105-1_amd64.deb
 # 補足：CUDAを上記のdeb(network)の方法でinstallするとcuda driversも一緒にinstallされるらしい
 
 # >> cuDNN v7.5.1

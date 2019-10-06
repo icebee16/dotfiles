@@ -96,4 +96,3 @@ hook_add = '''
     nnoremap <silent> <C-e>c :T cd "$(dirname  %)";g++  %;./a.out<CR>
     nnoremap <silent> vt :Ttoggle<CR>
 '''
-

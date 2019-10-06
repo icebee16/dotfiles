@@ -47,3 +47,15 @@ hook_add = '''
 	nnoremap <silent> <C-k> <Plug>(ale_previous_wrap)
 	nnoremap <silent> <C-j> <Plug>(ale_next_wrap)
 '''
+
+[[plugins]]
+repo = 'kannokanno/previm'
+on_ft = ['md', 'mdwn' ,'mkd' ,'mkdn']
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+on_ft = ['md', 'mdwn' ,'mkd' ,'mkdn']
+
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+on_ft = ['md', 'mdwn' ,'mkd' ,'mkdn']

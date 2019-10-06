@@ -8,6 +8,7 @@ endif
 augroup MyAutoCmd
 	autocmd!
 augroup END
+autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 
 ""=====================""
 ""   python3 setting   ""

@@ -48,7 +48,8 @@ pip install wheel
 pip install --no-binary :all: numpy
 # scipy
 sudo apt install -y gfortran
-pCFLAGS="-std=c99" pip install --no-binary :all: --no-use-pep517 scipy
+pip install pybind11
+pip install --no-binary :all: scipy
 
 # >> neovim
 mkdir $XDG_CONFIG_HOME/nvim

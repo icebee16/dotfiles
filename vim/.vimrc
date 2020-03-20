@@ -104,3 +104,10 @@ nnoremap <S-Up>    <C-w>-<CR>
 nnoremap <S-Down>  <C-w>+<CR>
 "" mode change
 inoremap <silent> jj <ESC>:<C-u>w<CR>
+
+""=================""
+""  local setting  ""
+""=================""
+if filereadable(expand($HOME.'/dotfiles/vim/.vimrc.local'))
+  source $HOME/dotfiles/vim/.vimrc.local
+endif

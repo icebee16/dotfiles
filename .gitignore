@@ -1,5 +1,6 @@
 .DS_Store
 vim/.viminfo*
+vim/.vimrc.local
 zsh/.zcompdump
 zsh/.zsh_history
 zsh/.zshrc_local

@@ -3,8 +3,17 @@
 #==============#
 #   autoload   #
 #==============#
-autoload -Uz compinit; compinit
-autoload -Uz colors; colors
+## completion
+autoload -Uz compinit
+fpath+=$ZDOTDIR/.zfunc
+compinit
+
+autoload -Uz bashcompinit
+bashcompinit
+
+## colors
+autoload -Uz colors
+colors
 
 #=========================#
 #   grobal PATH setting   #
@@ -27,10 +36,12 @@ export PYENV_ROOT="$XDG_DATA_HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-## pipenv ##
-# https://github.com/pypa/pipenv
-#export PIPENV_VENV_IN_PROJECT=true
-#export WORKON_HOME="$XDG_DATA_HOME/.virtualenvs"
+## poetry ##
+export PATH="$HOME/.poetry/bin:$PATH"
+
+## pipx ##
+export PATH="$HOME/.local/bin:$PATH"
+eval "$(register-python-argcomplete pipx)"
 
 #=========================#
 #   config file loading   #
@@ -95,7 +106,7 @@ bindkey -e
 ## alias ##
 alias 'ls'='ls -G'
 alias 'la'='ls -aG'
-alias 'll'='ls -lG --color'
+alias 'll'='ls -alG'
 alias 'rm'='rm -i'
 alias 'cp'='cp -i'
 alias 'mv'='mv -i'

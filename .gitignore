@@ -4,4 +4,5 @@ vim/.vimrc.local
 zsh/.zcompdump
 zsh/.zsh_history
 zsh/.zshrc_local
+zsh/.zfunc
 GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB

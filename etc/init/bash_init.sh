@@ -6,7 +6,7 @@ set -eu
 case ${OSTYPE} in
     darwin*)
         echo "Running on OSX"
-        # source install/brew.sh
+        source etc/init/bash_darwin.sh
         ;;
     linux*)
         if   [ -e /etc/debian_version ] ||
@@ -14,44 +14,42 @@ case ${OSTYPE} in
             # Check Ubuntu or Debian
             if [ -e /etc/lsb-release ]; then
                 # Ubuntu
-                # distri_name="ubuntu"
                 echo "Running on ubuntu"
                 source etc/init/bash_ubuntu.sh
             else
                 # Debian
-                distri_name="debian"
+                echo "Not implemented debian.sh"
             fi
         elif [ -e /etc/fedora-release ]; then
             # Fedra
-            distri_name="fedora"
+            echo "Not implemented fedora.sh"
         elif [ -e /etc/redhat-release ]; then
             if [ -e /etc/oracle-release ]; then
                 # Oracle Linux
-                distri_name="oracle"
+                echo "Not implemented oracle.sh"
             else
                 # Red Hat Enterprise Linux
                 # CentOS
-                distri_name="redhat"
+                echo "Not implemented redhat.sh"
             fi
         elif [ -e /etc/turbolinux-release ]; then
             # Turbolinux
-            distri_name="turbol"
+            echo "Not implemented turbol.sh"
         elif [ -e /etc/SuSE-release ]; then
             # SuSE Linux
-            distri_name="suse"
+            echo "Not implemented suse.sh"
         elif [ -e /etc/mandriva-release ]; then
             # Mandriva Linux
-            distri_name="mandriva"
+            echo "Not implemented mandriva.sh"
         elif [ -e /etc/vine-release ]; then
             # Vine Linux
-            distri_name="vine"
+            echo "Not implemented vine.sh"
         elif [ -e /etc/gentoo-release ]; then
             # Gentoo Linux
-            distri_name="gentoo"
+            echo "Not implemented gentoo.sh"
         else
             # Other
             echo "unkown distribution"
-            distri_name="unkown"
         fi
         ;;
 esac

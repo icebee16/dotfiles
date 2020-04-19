@@ -1,19 +1,35 @@
+# linter
 [[plugins]]
-repo = 'cespare/vim-toml'
-on_ft = ['toml']
-
-
-[[plugins]]
-repo = 'zchee/deoplete-jedi'
-on_ft = ['python']
+repo = 'w0rp/ale'
+on_ft = ['python', 'cpp', 'c', 'cmake']
 hook_add = '''
-    let g:deoplete#sources#jedi#python_path = $PYENV_ROOT. "/shims/python3"
+    let g:ale_linters = {
+        \	'python'	:	['flake8'],
+        \   'cpp'       :   ['gcc'],
+        \   'c'         :   ['gcc'],
+        \   'cmake'     :   ['gcc']
+        \	}
+
+    let g:ale_sign_column_always = 1
+    let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+    let g:ale_echo_msg_error_str = 'E'
+    let g:ale_echo_msg_warning_str = 'W'
+    let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
+    let g:ale_lint_on_enter = 1
+    let g:ale_lint_on_save = 1
+    let g:ale_lint_on_text_change = 'never'
+
+    nnoremap <silent> <C-k> <Plug>(ale_previous_wrap)
+    nnoremap <silent> <C-j> <Plug>(ale_next_wrap)
 '''
 
+# python
 [[plugins]]
 repo = 'Vimjas/vim-python-pep8-indent'
 on_ft = ['python']
 
+# c
 [[plugins]]
 repo = 'zchee/deoplete-clang'
 on_ft = ['cpp', 'c', 'cmake']
@@ -23,31 +39,20 @@ hook_add = '''
     let g:deoplete#sources#clang#clang_header = $CLANG_HEADER
 '''
 
+# sql
 [[plugins]]
-repo = 'w0rp/ale'
-on_ft = ['python', 'cpp', 'c', 'cmake']
+repo = 'vim-scripts/dbext.vim'
+on_ft = ['sql']
 hook_add = '''
-	let g:ale_linters = {
-		\	'python'	:	['flake8'],
-        \   'cpp'       :   ['gcc'],
-        \   'c'         :   ['gcc'],
-        \   'cmake'     :   ['gcc']
-		\	}
-
-	let g:ale_sign_column_always = 1
-	let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
-	let g:ale_echo_msg_error_str = 'E'
-	let g:ale_echo_msg_warning_str = 'W'
-	let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-
-	let g:ale_lint_on_enter = 1
-	let g:ale_lint_on_save = 1
-	let g:ale_lint_on_text_change = 'never'
-
-	nnoremap <silent> <C-k> <Plug>(ale_previous_wrap)
-	nnoremap <silent> <C-j> <Plug>(ale_next_wrap)
+    let g:dbext_default_history_file = $XDG_DATA_HOME."/nvim/dbext_history"
 '''
 
+# toml
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = ['toml']
+
+# markdown
 [[plugins]]
 repo = 'kannokanno/previm'
 on_ft = ['md', 'mdwn' ,'mkd' ,'mkdn']
@@ -59,10 +64,3 @@ on_ft = ['md', 'mdwn' ,'mkd' ,'mkdn']
 [[plugins]]
 repo = 'plasticboy/vim-markdown'
 on_ft = ['md', 'mdwn' ,'mkd' ,'mkdn']
-
-[[plugins]]
-repo = 'vim-scripts/dbext.vim'
-on_ft = ['sql']
-hook_add = '''
-    let g:dbext_default_history_file = $XDG_DATA_HOME."/nvim/dbext_history"
-'''

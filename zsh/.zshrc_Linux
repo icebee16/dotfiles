@@ -1,14 +1,21 @@
-### ZPLUG_HOME
+## ZPLUG_HOME
 export ZPLUG_HOME=$HOME/.zplug
 
-### Anaconda3
-if [ -e "$HOME/anaconda3" ] ; then
-		PATH="$HOME/anaconda3/bin:$PATH"
-fi
+## IntelMKL
+export MKL_ROOT_DIR=/opt/intel/mkl
+export LD_LIBRARY_PATH=$MKL_ROOT_DIR/lib/intel64:/opt/intel/lib/intel64_lin:$LD_LIBRARY_PATH
+export LIBRARY_PATH=$MKL_ROOT_DIR/lib/intel64:$LIBRARY_PATH
 
-# libclang path for deoplete-clang
+## libclang path for deoplete-clang
 export LIB_CLANG="/usr/lib/llvm-6.0/lib/libclang-6.0.so"
 export CLANG_HEADER="/usr/lib/llvm-6.0/lib/clang"
 
-### wsl zsh
+## wsl zsh
 setopt NO_BG_NICE
+
+## jupyter notebook
+alias 'jn'='jupyter notebook --config="/home/icebee/.config/jupyter/jupyter_notebook_config.py"'
+
+## CUDA and cuDNN paths
+export PATH=/usr/local/cuda/bin:${PATH}
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64:${LD_LIBRARY_PATH}

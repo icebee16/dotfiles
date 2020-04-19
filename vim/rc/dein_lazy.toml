@@ -59,3 +59,10 @@ on_ft = ['md', 'mdwn' ,'mkd' ,'mkdn']
 [[plugins]]
 repo = 'plasticboy/vim-markdown'
 on_ft = ['md', 'mdwn' ,'mkd' ,'mkdn']
+
+[[plugins]]
+repo = 'vim-scripts/dbext.vim'
+on_ft = ['sql']
+hook_add = '''
+    let g:dbext_default_history_file = $XDG_DATA_HOME."/nvim/dbext_history"
+'''

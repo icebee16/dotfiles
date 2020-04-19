@@ -117,6 +117,7 @@ alias 'vv'='nvim $HOME/dotfiles/vim/.vimrc'
 alias 'less'='less -NM'
 alias 'reload'='exec $SHELL -l'
 alias 'ju'='jupyter notebook'
+alias 'envpath'='echo $PATH | tr ":" "\n"'
 ## hash ##
 
 #===========#

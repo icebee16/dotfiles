@@ -95,7 +95,7 @@ bindkey -e
 ## alias ##
 alias 'ls'='ls -G'
 alias 'la'='ls -aG'
-alias 'll'='ls -lG'
+alias 'll'='ls -lG --color'
 alias 'rm'='rm -i'
 alias 'cp'='cp -i'
 alias 'mv'='mv -i'

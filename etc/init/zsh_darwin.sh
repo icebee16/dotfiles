@@ -24,6 +24,7 @@ pip install -U pip
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
 mkdir $ZDOTDIR/.zfunc
 poetry completions zsh > $ZDOTDIR/.zfunc/_poetry
+poetry config virtualenvs.in-project true
 
 # >> pipx
 pip install pipx

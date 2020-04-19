@@ -36,6 +36,18 @@ pipx install flake8
 mkdir $XDG_CONFIG_HOME/kaggle
 pipx install kaggle
 
+# >> jupyter
+pip install jupyter
+pip install jupyter_contrib_nbextensions
+pip install jupyterthemes
+jt -t chesterish -T -f roboto -fs 9 -tf merriserif -tfs 11 -nf ptsans -nfs 11 -dfs 8 -ofs 8
+
+# ====== #
+# neovim #
+# ====== #
+# >> node
+brew install node
+
 # >> neovim
 mkdir $XDG_CONFIG_HOME/nvim
 ln -s $HOME/dotfiles/vim/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
@@ -43,11 +55,8 @@ brew install neovim
 pip install pynvim
 npm install -g neovim
 
-# >> jupyter
-pip install jupyter
-pip install jupyter_contrib_nbextensions
-pip install jupyterthemes
-jt -t chesterish -T -f roboto -fs 9 -tf merriserif -tfs 11 -nf ptsans -nfs 11 -dfs 8 -ofs 8
+# init
+neovim -c "CocInstall -sync coc-json coc-python coc-ultisnips | q"
 
 # === #
 # ssh #

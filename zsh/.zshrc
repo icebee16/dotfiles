@@ -26,13 +26,11 @@ export KAGGLE_CONFIG_DIR="$XDG_CONFIG_HOME/kaggle"
 export PYENV_ROOT="$XDG_DATA_HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
 ## pipenv ##
 # https://github.com/pypa/pipenv
-export PIPENV_VENV_IN_PROJECT=true
-export WORKON_HOME="$XDG_DATA_HOME/.virtualenvs"
-eval "$(pipenv --completion)"
-## python path ##
-#export PYTHON_PATH="/usr/local/bin/python3"
+#export PIPENV_VENV_IN_PROJECT=true
+#export WORKON_HOME="$XDG_DATA_HOME/.virtualenvs"
 
 #=========================#
 #   config file loading   #
@@ -121,7 +119,7 @@ zplug "b4b4r07/enhancd", use:enhancd.sh
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
-# install zplug  
+# install zplug
 if ! zplug check --verbose; then
   printf 'Install? [y/N]: '
   if read -q; then

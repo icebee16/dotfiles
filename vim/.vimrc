@@ -7,8 +7,8 @@ endif
 "" reset augroup
 augroup MyAutoCmd
 	autocmd!
+    autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
-autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 
 ""=====================""
 ""   python3 setting   ""

@@ -30,6 +30,10 @@ pipx install flake8
 # ====== #
 # neovim #
 # ====== #
+# >> neovim config setup
+mkdir $XDG_CONFIG_HOME/nvim
+ln -s $HOME/dotfiles/vim/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
+
 # >> latest vim install
 sudo yum install -y curl git make gcc ncurses-devel
 git clone https://github.com/vim/vim.git $XDG_DATA_HOME/.vim
@@ -43,7 +47,7 @@ cd $XDG_DATA_HOME/.vim
   --enable-rubyinterp \
   --enable-xim
 sudo make && sudo make install
-echo 'export PATH="/usr/local/bin:PATH"' >> $ZDOTDIR/.zshrc_local
+echo 'export PATH="/usr/local/bin:$PATH"' >> $ZDOTDIR/.zshrc_local
 
 # >> neovim build & install
 sudo yum -y install ninja-build libtool autoconf automake cmake gcc gcc-c++ make pkgconfig unzip patch
@@ -52,19 +56,17 @@ cd $XDG_DATA_HOME/.neovim
 git checkout stable
 make CMAKE_BUILD_TYPE=Release
 sudo make install
+cd
 
 # >> nodejs
+sudo yum remove -y nodejs npm
 curl -sL https://rpm.nodesource.com/setup_12.x | sudo bash -
 sudo yum install -y nodejs
 sudo npm install -g neovim
 
-# >> yarn
-curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
-sudo rpm --import https://dl.yarnpkg.com/rpm/pubkey.gpg
-sudo yum install yarn
-
-# >> neovim config setup
-mkdir $XDG_CONFIG_HOME/nvim
-ln -s $HOME/dotfiles/vim/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
+# >> pynvim
 pip install pynvim
-nvim -c "CocInstall -sync coc-json coc-python coc-ultisnips | q"
+
+# >> yarn
+sudo npm install -g yarn
+/usr/local/bin/nvim -c "CocInstall -sync coc-json coc-python coc-ultisnips | q"

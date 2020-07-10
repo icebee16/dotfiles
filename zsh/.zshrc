@@ -104,9 +104,6 @@ fi
 ## key bind ##
 bindkey -e
 ## alias ##
-alias 'ls'='ls -G'
-alias 'la'='ls -aG'
-alias 'll'='ls -alG'
 alias 'rm'='rm -i'
 alias 'cp'='cp -i'
 alias 'mv'='mv -i'

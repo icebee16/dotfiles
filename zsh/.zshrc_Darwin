@@ -1,3 +1,8 @@
+## alias for linux
+alias 'ls'='ls -G --color'
+alias 'la'='ls -aG --color'
+alias 'll'='ls -alG --color'
+
 ### ZPLUG_HOME
 # install by brew
 export ZPLUG_HOME=/usr/local/opt/zplug

@@ -1,4 +1,5 @@
 # deploy
+.PHONY: deploy init
 deploy:
 	@apt update
 	@apt upgrade -y

@@ -12,16 +12,14 @@ if git_status=$(cd $1 && git status 2>/dev/null ); then
   else
     git_info="#[bg=black,fg=colour014]⭠ #[default]${state}#[underscore]#[bg=black,fg=colour014]${git_branch}#[default]#[bg=black,fg=colour014] "
   fi
+
+  array=( `echo $1 | tr -s '/' ' '`)
+  last_index=`expr ${#array[@]}`
+  current_dir="${array[${last_index}]}"
+
+  directory="#[bg=black,fg=cyan, bold] [$current_dir]#[default]$git_info"
 else
-  git_info=""
+  directory=""
 fi
 
-array=( `echo $1 | tr -s '/' ' '`)
-last_index=`expr ${#array[@]}`
-current_dir="${array[${last_index}]}"
-
-# current_dir=`get_last_dir $1`
-directory="#[bg=black,fg=cyan, bold] [$current_dir]#[default]"
-
-echo "$directory$git_info"
-# echo "$current_dir"
+echo "$directory"

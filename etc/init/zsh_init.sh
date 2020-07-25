@@ -11,7 +11,7 @@ set -eu
 case ${OSTYPE} in
     darwin*)
         echo "Running on OSX"
-        source etc/init/zsh_darwin.sh
+        source etc/init/darwin/zsh_darwin.sh
         ;;
     linux*)
         if   [ -e /etc/debian_version ] ||
@@ -20,7 +20,7 @@ case ${OSTYPE} in
             if [ -e /etc/lsb-release ]; then
                 # Ubuntu
                 echo "Running on ubuntu"
-                source etc/init/zsh_ubuntu.sh
+                source etc/init/linux/zsh_ubuntu.sh
             else
                 # Debian
                 echo "Not implemented debian.sh"
@@ -35,7 +35,8 @@ case ${OSTYPE} in
             else
                 # Red Hat Enterprise Linux
                 # CentOS
-                echo "Not implemented redhat.sh"
+                echo "Running on CentOS"
+                source etc/init/linux/zsh_centos.sh
             fi
         elif [ -e /etc/turbolinux-release ]; then
             # Turbolinux

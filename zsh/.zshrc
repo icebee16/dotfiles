@@ -1,5 +1,17 @@
 # Created by newuser for 5.5.1
 
+#=========================#
+#   grobal PATH setting   #
+#=========================#
+## XDG Base Directory ##
+# https://wiki.archlinux.jp/index.php/XDG_Base_Directory_%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+## kaggle API ##
+# https://github.com/Kaggle/kaggle-api
+export KAGGLE_CONFIG_DIR="$XDG_CONFIG_HOME/kaggle"
+
 #==============#
 #   autoload   #
 #==============#
@@ -14,18 +26,6 @@ bashcompinit
 ## colors
 autoload -Uz colors
 colors
-
-#=========================#
-#   grobal PATH setting   #
-#=========================#
-## XDG Base Directory ##
-# https://wiki.archlinux.jp/index.php/XDG_Base_Directory_%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_DATA_HOME="$HOME/.local/share"
-## kaggle API ##
-# https://github.com/Kaggle/kaggle-api
-export KAGGLE_CONFIG_DIR="$XDG_CONFIG_HOME/kaggle"
 
 #====================#
 #   python setting   #
@@ -105,9 +105,6 @@ fi
 ## key bind ##
 bindkey -e
 ## alias ##
-alias 'ls'='ls -G'
-alias 'la'='ls -aG'
-alias 'll'='ls -alG'
 alias 'rm'='rm -i'
 alias 'cp'='cp -i'
 alias 'mv'='mv -i'
@@ -132,6 +129,12 @@ zplug "b4b4r07/enhancd", use:enhancd.sh
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
+zplug "rupa/z"
+zplug "plugins/git", from:oh-my-zsh
+zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
+zplug "junegunn/fzf", as:command, use:bin/fzf-tmux
+zplug "b4b4r07/zsh-gomi", if:"which fzf"
+zplug "arks22/tmuximum", as:command
 # install zplug
 if ! zplug check --verbose; then
   printf 'Install? [y/N]: '

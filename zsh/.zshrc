@@ -34,6 +34,7 @@ export KAGGLE_CONFIG_DIR="$XDG_CONFIG_HOME/kaggle"
 # https://github.com/pyenv/pyenv
 export PYENV_ROOT="$XDG_DATA_HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="$PYENV_ROOT/shims:$PATH"
 eval "$(pyenv init -)"
 
 ## poetry ##

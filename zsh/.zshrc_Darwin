@@ -1,7 +1,7 @@
 ## alias for linux
-alias 'ls'='ls -G --color'
-alias 'la'='ls -aG --color'
-alias 'll'='ls -alG --color'
+alias 'ls'='ls -G'
+alias 'la'='ls -aG'
+alias 'll'='ls -alG'
 
 ### ZPLUG_HOME
 # install by brew

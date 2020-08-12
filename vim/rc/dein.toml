@@ -109,6 +109,12 @@ on_i = 1
 merged = '0'
 build = 'coc#util#install()'
 hook_add = '''
+    let g:coc_global_extensions = [
+        \  'coc-python'
+        \, 'coc-r-lsp'
+        \, 'coc-metals'
+        \, 'coc-json'
+        \ ]
     nmap <silent> gd <Plug>(coc-definition)
     nmap <silent> gy <Plug>(coc-type-definition)
     nmap <silent> gi <Plug>(coc-implementation)

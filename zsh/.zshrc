@@ -148,3 +148,4 @@ zplug load
 
 ## plugin setting ##
 export FZF_DEFAULT_OPTS='--color=fg+:11 --height 70% --reverse --select-1 --exit-0 --multi'
+export FZF_DEFAULT_COMMAND='fd --type f --hidden'

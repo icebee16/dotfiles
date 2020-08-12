@@ -1,7 +1,6 @@
-# function history-all { history -E 1 }
-
+## function ##
 function fzf-cd-directry {
-    local res=$(z | sort -rn | cut -c 12- | fzf)
+    local res=$(z | sort -rn | cut -c 12- | fzf-tmux --preview 'tree -C {} | head -200')
     if [ -n "$res" ]; then
         cd $res
     else
@@ -13,7 +12,7 @@ alias 'cdd'='fzf-cd-directry'
 function fzf-history-search {
     local cache=${1:=100}
     expr "$cache" + 1 > /dev/null
-    local res=$(history -r -E 1 | head -n "$cache" | fzf | sed 's/^[ \t]*//' | cut -f 6- -d' ')
+    local res=$(history -r -E 1 | head -n "$cache" | fzf-tmux | sed 's/^[ \t]*//' | cut -f 6- -d' ')
     if [ -n "$res" ]; then
         local cmd=$(echo "$res" | cut -f 1 -d' ')
         local args=$(echo "$res" | cut -f 2- -d' ')
@@ -24,3 +23,10 @@ function fzf-history-search {
     fi
 }
 alias 'hs'='fzf-history-search'
+
+function fzf-file() {
+  local files
+  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0 --preview 'head {} -100'))
+  [[ -n "$files" ]] && ${EDITOR:-nvim} "${files[@]}"
+}
+alias 'fe'='fzf-file'

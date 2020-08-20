@@ -8,6 +8,7 @@ endif
 augroup MyAutoCmd
 	autocmd!
     autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+    autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 augroup END
 
 ""=====================""
@@ -52,10 +53,13 @@ set nobackup
 set nowritebackup
 set number
 set ambiwidth=double
+set autoindent
+set smarttab
 set expandtab
+set smartindent
 set tabstop=4
 set shiftwidth=4
-set smartindent
+set softtabstop=0
 set list
 set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 set nrformats-=octal

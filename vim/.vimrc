@@ -8,6 +8,7 @@ endif
 augroup MyAutoCmd
 	autocmd!
     autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+    autocmd BufNewFile,BufRead .my.conf set filetype=zsh
     autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 augroup END
 

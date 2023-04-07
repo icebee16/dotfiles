@@ -41,8 +41,8 @@ eval "$(pyenv init -)"
 export PATH="$HOME/.poetry/bin:$PATH"
 
 ## pipx ##
-export PATH="$HOME/.local/bin:$PATH"
-eval "$(register-python-argcomplete pipx)"
+# export PATH="$HOME/.local/bin:$PATH"
+# eval "$(register-python-argcomplete pipx)"
 
 #=========================#
 #   config file loading   #

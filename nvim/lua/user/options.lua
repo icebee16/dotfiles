@@ -13,12 +13,12 @@ set.viminfo:append("n~/dotfiles/nvim/.viminfo")
 set.number = true
 set.list = true
 set.listchars = {
-  tab = "»-",
-  trail = "-",
+  tab = "→ ",
+  trail = "·",
   eol = "↲",
-  extends = "»",
-  precedes = "«",
-  nbsp = "%"
+  extends = "›",
+  precedes = "‹",
+  nbsp = "␣",
 }
 set.laststatus = 2
 set.hlsearch = true

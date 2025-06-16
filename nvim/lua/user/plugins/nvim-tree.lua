@@ -27,7 +27,7 @@ return {
         api.config.mappings.default_on_attach(bufnr)
         -- custom keymap
         vim.keymap.set("n", '?', api.tree.toggle_help, opts("Help"))
-        vim.keymap.set("n", "<C-e>", vim.cmd.NvimTreeToggle, opts("ToggleTree"), { silent = true })
+        vim.keymap.set("n", "<C-e>", vim.cmd.NvimTreeToggle, opts("ToggleTree"))
       end
     }
   end,

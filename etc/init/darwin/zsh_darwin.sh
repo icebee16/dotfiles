@@ -15,13 +15,12 @@ git clone https://github.com/yyuu/pyenv.git $XDG_DATA_HOME/.pyenv
 set +e
 source $ZDOTDIR/.zshrc
 set -e
-pyenv install 3.6.10 # for kaggle
 pyenv install 3.7.7
 pyenv global 3.7.7
 pip install -U pip
 
 # >> poetry
-curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
+curl -sSL https://install.python-poetry.org | python3 -
 mkdir $ZDOTDIR/.zfunc
 poetry completions zsh > $ZDOTDIR/.zfunc/_poetry
 poetry config virtualenvs.in-project true

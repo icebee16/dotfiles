@@ -1,129 +1,74 @@
-# Created by newuser for 5.5.1
+# ~/.zshrc
 
-#=========================#
-#   grobal PATH setting   #
-#=========================#
-## XDG Base Directory ##
-# https://wiki.archlinux.jp/index.php/XDG_Base_Directory_%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_DATA_HOME="$HOME/.local/share"
-## kaggle API ##
-# https://github.com/Kaggle/kaggle-api
-export KAGGLE_CONFIG_DIR="$XDG_CONFIG_HOME/kaggle"
+#========================#
+#  Shell Option & Setup  #
+#========================#
 
-#==============#
-#   autoload   #
-#==============#
-## completion
-autoload -Uz compinit
+# Path
+export PATH="$PYENV_ROOT/shims:$PATH"
+
+# zstyle, compinit
+autoload -Uz compinit colors bashcompinit
 fpath+=$ZDOTDIR/.zfunc
 compinit
-
-autoload -Uz bashcompinit
 bashcompinit
-
-## colors
-autoload -Uz colors
 colors
 
-#====================#
-#   python setting   #
-#====================#
-## pyenv ##
-# https://github.com/pyenv/pyenv
-export PYENV_ROOT="$XDG_DATA_HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-export PATH="$PYENV_ROOT/shims:$PATH"
-eval "$(pyenv init -)"
-
-## poetry ##
-export PATH="$HOME/.poetry/bin:$PATH"
-
-## pipx ##
-# export PATH="$HOME/.local/bin:$PATH"
-# eval "$(register-python-argcomplete pipx)"
-
-#=========================#
-#   config file loading   #
-#=========================#
-## OS type config file ##
-[ -f $ZDOTDIR/.zshrc_`uname` ] && . $ZDOTDIR/.zshrc_`uname`
-## local config file ##
-[ -f $ZDOTDIR/.zshrc_local ] && . $ZDOTDIR/.zshrc_local
-
-#====================#
-#   Option setting   #
-#====================#
-## completion ##
-setopt auto_param_slash
-setopt mark_dirs
-setopt list_types
-setopt list_packed
-setopt auto_list
-setopt auto_menu
-setopt auto_param_keys
-setopt magic_equal_subst
-setopt always_last_prompt
-setopt complete_in_word
-setopt globdots
-## history ##
-setopt hist_ignore_all_dups
-setopt hist_ignore_space
-setopt extended_history
-setopt inc_append_history
-## change directry ##
-setopt auto_cd
-setopt auto_pushd
-setopt pushd_ignore_dups
+# History
 HISTFILE=$ZDOTDIR/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
-## etc
-setopt ignore_eof
-setopt correct
-setopt no_beep
-### zstyle ###
+
+setopt hist_ignore_all_dups hist_ignore_space extended_history inc_append_history
+setopt auto_cd auto_pushd pushd_ignore_dups
+setopt ignore_eof correct no_beep
+setopt auto_param_slash mark_dirs list_types auto_menu globdots
+
 zstyle ':completion:*:default' menu select=2
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 zstyle ':completion:*:descriptions' format '%BCompleting%b %U%d%u'
 
-#============#
-#   PROMPT   #
-#============#
-if [ -n "$SSH_CONNECTION" ]; then
-	PROMPT="%{${fg[cyan]}%}[%n]%{${reset_color}%}@%{${fg[red]}%}[%m]%{${reset_color}%} %# "
-	RPROMPT="%{${fg[white]}%}[%~]%{${reset_color}%}"
+#================#
+#     Prompt     #
+#================#
+if [[ -n "$SSH_CONNECTION" ]]; then
+  PROMPT="%{${fg[cyan]}%}[%n]%{${reset_color}%}@%{${fg[red]}%}[%m]%{${reset_color}%} %# "
 else
-	PROMPT="%{${fg[cyan]}%}[%n]%{${reset_color}%}@%{${fg[green]}%}[%m]%{${reset_color}%} %# "
-	RPROMPT="%{${fg[white]}%}[%~]%{${reset_color}%}"
+  PROMPT="%{${fg[cyan]}%}[%n]%{${reset_color}%}@%{${fg[green]}%}[%m]%{${reset_color}%} %# "
 fi
+RPROMPT="%{${fg[white]}%}[%~]%{${reset_color}%}"
 
-#==============================#
-#   alias, hash and function   #
-#==============================#
-## key bind ##
-bindkey -e
-## alias ##
-alias 'rm'='rm -i'
-alias 'cp'='cp -i'
-alias 'mv'='mv -i'
-alias 'vi'='nvim'
-alias 'vz'='nvim $ZDOTDIR/.zshrc'
-alias 'vl'='nvim $ZDOTDIR/.zshrc_local'
-alias 'vv'='nvim $HOME/dotfiles/vim/.vimrc'
-alias 'less'='less -NM'
-alias 'reload'='exec $SHELL -l'
-alias 'ju'='jupyter notebook'
-alias 'envpath'='echo $PATH | tr ":" "\n"'
-## function ##
+#================#
+#     Aliases    #
+#================#
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias vi='nvim'
+alias vz='nvim $ZDOTDIR/.zshrc'
+alias vl='nvim $ZDOTDIR/.zshrc_local'
+alias vv='nvim $HOME/dotfiles/vim/.vimrc'
+alias less='less -NM'
+alias reload='exec $SHELL -l'
+alias ju='jupyter notebook'
+alias envpath='echo $PATH | tr ":" "\n"'
+
+#================#
+#   Functions    #
+#================#
 source $ZDOTDIR/.zshrc_util
 
-#=============#
-#   sheldon   #
-#=============#
+#================#
+#    Plugins     #
+#================#
 eval "$(sheldon source)"
 
-## plugin setting ##
+# FZF Settings
 export FZF_DEFAULT_OPTS='--color=fg+:11 --height 70% --reverse --select-1 --exit-0 --multi'
 export FZF_DEFAULT_COMMAND='fd --type f --hidden'
+
+#================#
+#  Local Config  #
+#================#
+[[ -f $ZDOTDIR/.zshrc_$(uname) ]] && source $ZDOTDIR/.zshrc_$(uname)
+[[ -f $ZDOTDIR/.zshrc_local ]] && source $ZDOTDIR/.zshrc_local

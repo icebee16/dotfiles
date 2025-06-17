@@ -116,36 +116,13 @@ alias 'less'='less -NM'
 alias 'reload'='exec $SHELL -l'
 alias 'ju'='jupyter notebook'
 alias 'envpath'='echo $PATH | tr ":" "\n"'
-## hash ##
 ## function ##
 source $ZDOTDIR/.zshrc_util
 
-#===========#
-#   zplug   #
-#===========#
-## zplug setting ##
-source $ZPLUG_HOME/init.zsh
-# define zplug
-zplug "mollifier/cd-gitroot"
-zplug "b4b4r07/enhancd", use:enhancd.sh
-zplug "zsh-users/zsh-syntax-highlighting"
-zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-autosuggestions"
-zplug "rupa/z", use:z.sh
-zplug "plugins/git", from:oh-my-zsh
-zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
-zplug "junegunn/fzf", as:command, use:bin/fzf-tmux
-zplug "b4b4r07/zsh-gomi", if:"which fzf"
-zplug "arks22/tmuximum", as:command
-# install zplug
-if ! zplug check --verbose; then
-  printf 'Install? [y/N]: '
-  if read -q; then
-    echo; zplug install
-  fi
-fi
-# plugin load
-zplug load
+#=============#
+#   sheldon   #
+#=============#
+eval "$(sheldon source)"
 
 ## plugin setting ##
 export FZF_DEFAULT_OPTS='--color=fg+:11 --height 70% --reverse --select-1 --exit-0 --multi'

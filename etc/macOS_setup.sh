@@ -37,7 +37,7 @@ else
 fi
 
 brew update && brew upgrade && brew cleanup
-brew install tmux htop tree wget fd fzf node git sheldon neovim pyenv pipx
+brew install tmux htop tree wget fd fzf node git sheldon neovim pyenv pipx zoxide
 
 #----------------------#
 #     3. SYMLINKS      #

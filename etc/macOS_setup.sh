@@ -83,7 +83,7 @@ poetry completions zsh > "$ZDOTDIR/.zfunc/_poetry"
 #     5. NEOVIM ENV    #
 #----------------------#
 echo "[Step 5] Installing Neovim dependencies..."
-pipx install pynvim
+pip install pynvim
 npm install -g neovim
 
 #----------------------#
@@ -91,7 +91,7 @@ npm install -g neovim
 #----------------------#
 echo "[Step 6] Initializing sheldon..."
 mkdir -p "$XDG_CONFIG_HOME/sheldon"
-ln -sf "$HOME/dotfiles/.zsh_plugins.toml" "$XDG_CONFIG_HOME/sheldon/plugins.toml"
+ln -sf "$HOME/dotfiles/zsh/.zsh_plugins.toml" "$XDG_CONFIG_HOME/sheldon/plugins.toml"
 sheldon lock --update
 
 #----------------------#

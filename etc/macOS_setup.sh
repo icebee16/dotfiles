@@ -47,8 +47,7 @@ ln -sf "$ZDOTDIR/.zshenv" "$HOME/.zshenv"
 ln -sf "$ZDOTDIR/.zprofile" "$HOME/.zprofile"
 ln -sf "$ZDOTDIR/.zshrc" "$HOME/.zshrc"
 
-mkdir -p "$XDG_CONFIG_HOME/nvim"
-ln -sf "$HOME/dotfiles/nvim/init.lua" "$XDG_CONFIG_HOME/nvim/init.lua"
+ln -sf "$HOME/dotfiles/nvim" "$XDG_CONFIG_HOME/nvim"
 
 #----------------------#
 #     4. PYTHON ENV    #

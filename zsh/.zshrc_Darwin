@@ -3,12 +3,9 @@ alias 'ls'='ls -G'
 alias 'la'='ls -aG'
 alias 'll'='ls -alG'
 
-### ZPLUG_HOME
-# install by brew
-export ZPLUG_HOME=/usr/local/opt/zplug
-
-### brew cask 
+### homebrew
+export PATH="/opt/homebrew/bin:$PATH"
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # for coc.nvim, clangd
-export PATH="/usr/local/opt/llvm/bin:$PATH"
+# export PATH="/usr/local/opt/llvm/bin:$PATH"

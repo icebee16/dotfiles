@@ -53,6 +53,11 @@ return {
       -- Shell
       lspconfig.bashls.setup({
         filetypes = { "sh", "bash", "zsh" },
+        settings = {
+          bashIde = {
+            globPattern = "*@(.sh|.inc|.bash|.command|.zshrc|.zsh)"
+          },
+        },
       })
 
       -- SQL

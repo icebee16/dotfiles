@@ -51,7 +51,9 @@ return {
       lspconfig.marksman.setup({})
 
       -- Shell
-      lspconfig.bashls.setup({})
+      lspconfig.bashls.setup({
+        filetypes = { "sh", "bash", "zsh" },
+      })
 
       -- SQL
       lspconfig.sqlls.setup({})

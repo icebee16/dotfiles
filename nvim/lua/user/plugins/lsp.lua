@@ -40,10 +40,12 @@ return {
 
       -- Lua (Neovim用設定)
       lspconfig.lua_ls.setup({
+        capabilities = capabilities,
         settings = {
           Lua = {
-            diagnostics = { globals = { "vim" } },
-            workspace = { checkThirdParty = false },
+            diagnostics = {
+              globals = { "vim" },
+            },
           },
         },
       })

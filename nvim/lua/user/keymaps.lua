@@ -44,3 +44,8 @@ keymap('n', '<C-e>', vim.cmd.NvimTreeToggle)
 -- コマンドライン補完
 keymap("c", "<C-n>", "<Down>", { silent = true })
 keymap("c", "<C-p>", "<Up>", { silent = true })
+
+-- Diagnostic: show message under cursor
+keymap("n", "<leader>d", function()
+  vim.diagnostic.open_float(nil, { focus = false, scope = "cursor" })
+end, { desc = "Show diagnostic under cursor", noremap = true, silent = true })

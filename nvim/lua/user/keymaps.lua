@@ -1,3 +1,7 @@
+-- leaderの変更
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 -- エイリアス
 local keymap = vim.keymap.set
 

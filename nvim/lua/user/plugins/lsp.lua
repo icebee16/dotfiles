@@ -1,15 +1,19 @@
 return {
   -- mason: LSP/DAP/Linter/Formatter installer
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     build = ":MasonUpdate",
+    cmd = { "Mason", "MasonUpdate", "MasonLog", "MasonInstall", "MasonUninstall", "MasonUninstallAll" },
     config = true,
   },
 
   -- mason-lspconfig: bridge between mason and lspconfig
   {
-    "williamboman/mason-lspconfig.nvim",
-    dependencies = { "mason.nvim" },
+    "mason-org/mason-lspconfig.nvim",
+    dependencies = {
+      "mason-org/mason.nvim",
+      "neovim/nvim-lspconfig"
+    },
     config = function()
       require("mason-lspconfig").setup({
         ensure_installed = {
@@ -28,8 +32,8 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      "williamboman/mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
+      "mason-org/mason.nvim",
+      "mason-org/mason-lspconfig.nvim",
     },
     config = function()
       local lspconfig = require("lspconfig")
@@ -37,6 +41,19 @@ return {
 
       -- Python
       lspconfig.pyright.setup({})
+
+      -- ruff
+      lspconfig.ruff.setup({
+        name = "ruff",
+        cmd = { "ruff", "server", "--preview" }, -- Language Server モードで起動
+        filetypes = { "python" },
+        root_dir = lspconfig.util.root_pattern("pyproject.toml", "setup.cfg", "setup.py", "requirements.txt", ".git"),
+        init_options = {
+          settings = {
+            args = {}, -- 任意で追加引数を指定（例: {"--ignore", "E501"}）
+          },
+        },
+      })
 
       -- Lua (Neovim用設定)
       lspconfig.lua_ls.setup({

@@ -1,10 +1,14 @@
 return {
   "yetone/avante.nvim",
+  -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
+  build = "make",
+  -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
   event = "VeryLazy",
   version = false, -- Never set this value to "*"! Never!
+  ---@module 'avante'
+  ---@type avante.Config
   opts = {
-    -- add any opts here
-    -- for example
+    -- Provider設定（ChatGPT / OpenAI）
     provider = "openai",
     providers = {
       openai = {
@@ -18,13 +22,45 @@ return {
         },
       },
     },
-    hints = {
-      enabled = false
+
+    -- 出力/UI挙動の調整
+    buffer_reuse = true, -- avoid redundant buffer creation
+    output_mode = "replace",
+    snacks = {
+      echo = false,      -- suppress echo-line duplication
+      history = {
+        enabled = false, -- avoid reprinting history
+      },
+    },
+    hints = { enabled = false },
+
+    -- UIウィンドウ挙動の最適化（バッファの再利用/冗長抑制の狙い）
+    behaviour = {
+      auto_suggestions = false,
+      auto_set_highlight_group = true,
+      auto_set_keymaps = true,
+      auto_apply_diff_after_generation = true,
+      support_paste_from_clipboard = true,
+      minimize_diff = true,
+    },
+
+    windows = {
+      position = "right",
+      wrap = true,
+      width = 30,
+      ask = {
+        floating = false,
+        start_insert = true,
+        border = "rounded",
+        focus_on_apply = "ours",
+      },
     },
   },
-  -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
-  build = "make",
-  -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
+
+  config = function(_, opts)
+    require("avante").setup(opts)
+  end,
+
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
     "nvim-lua/plenary.nvim",

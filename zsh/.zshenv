@@ -20,3 +20,6 @@ export PATH="$PYENV_ROOT/shims:$PATH"
 export PIPX_HOME="$XDG_DATA_HOME/pipx"
 export PIPX_BIN_DIR="$PIPX_HOME/bin"
 export PATH="$PIPX_BIN_DIR:$PATH"
+
+# obsidian
+export OBSIDIAN_VAULT_PATH="$HOME/Documents/vault"

@@ -17,7 +17,8 @@ return {
     config = function()
       require("mason-lspconfig").setup({
         ensure_installed = {
-          "pyright",      -- Python
+          "pyright",      -- pyright
+          "ruff",         -- ruff
           "lua_ls",       -- Lua (Neovim config)
           "marksman",     -- Markdown
           "bashls",       -- Shell (sh, bash)
@@ -36,52 +37,81 @@ return {
       "mason-org/mason-lspconfig.nvim",
     },
     config = function()
-      local lspconfig = require("lspconfig")
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      -- capabilities settings
+      capabilities.general = capabilities.general or {}
+      capabilities.general.positionEncodings = { "utf-16" }
+      capabilities.offsetEncoding = { "utf-16" }
 
-      -- Python
-      lspconfig.pyright.setup({})
-
-      -- ruff
-      lspconfig.ruff.setup({
-        name = "ruff",
-        cmd = { "ruff", "server", "--preview" }, -- Language Server モードで起動
-        filetypes = { "python" },
-        root_dir = lspconfig.util.root_pattern("pyproject.toml", "setup.cfg", "setup.py", "requirements.txt", ".git"),
-        init_options = {
-          settings = {
-            args = {}, -- 任意で追加引数を指定（例: {"--ignore", "E501"}）
-          },
-        },
-      })
-
-      -- Lua (Neovim用設定)
-      lspconfig.lua_ls.setup({
+      -- Pyright：型チェック寄せ ＋ “Ruffと被る系”を抑制
+      vim.lsp.config("pyright", {
         capabilities = capabilities,
         settings = {
-          Lua = {
-            diagnostics = {
-              globals = { "vim" },
+          python = {
+            analysis = {
+              -- 型チェックの強さ： "off" | "basic" | "standard" | "strict"
+              typeCheckingMode = "basic",
+              -- 開いているファイルだけ解析（必要なら "workspace" に上げる）
+              diagnosticMode = "openFilesOnly",
+              useLibraryCodeForTypes = true,
+              -- Ruff と重複しがちな診断を抑制
+              diagnosticSeverityOverrides = {
+                reportUnusedImport   = "none",
+                reportUnusedVariable = "none",
+                reportUnusedFunction = "none",
+                -- 必要に応じて：
+                -- reportWildcardImportFromLibrary = "none",
+                -- reportMissingTypeStubs = "information",
+              },
             },
           },
         },
       })
 
-      -- Markdown
-      lspconfig.marksman.setup({})
-
-      -- Shell
-      lspconfig.bashls.setup({
-        filetypes = { "sh", "bash", "zsh" },
-        settings = {
-          bashIde = {
-            globPattern = "*@(.sh|.inc|.bash|.command|.zshrc|.zsh)"
+      -- Ruff：Lint & Fix を担当（E/F/I を軸に）
+      vim.lsp.config("ruff", {
+        capabilities = capabilities,
+        cmd = { "ruff", "server", "--preview" },
+        filetypes = { "python" },
+        -- root_dir = vim.fs.dirname(vim.fs.find({
+        --   "pyproject.toml", "setup.cfg", "setup.py", "requirements.txt", ".git"
+        -- }, { upward = true })[1]),
+        init_options = {
+          settings = {
+            args = {},
           },
         },
       })
 
+      -- Lua (Neovim)
+      vim.lsp.config("lua_ls", {
+        capabilities = capabilities,
+        settings = {
+          Lua = {
+            diagnostics = { globals = { "vim" } },
+          },
+        },
+      })
+
+      -- Markdown
+      vim.lsp.config("marksman", {capabilities = capabilities})
+
+      -- Shell
+      vim.lsp.config("bashls", {
+        capabilities = capabilities,
+        filetypes = { "sh", "bash", "zsh" },
+        settings = {
+          bashIde = { globPattern = "*@(.sh|.inc|.bash|.command|.zshrc|.zsh)" },
+        },
+      })
+
       -- SQL
-      lspconfig.sqlls.setup({})
+      vim.lsp.config("sqlls", {capabilities = capabilities})
+
+      -- 有効化（手動 attach）
+      for _, server in ipairs({ "pyright", "ruff", "lua_ls", "marksman", "bashls", "sqlls" }) do
+        vim.lsp.enable(server)
+      end
     end,
   },
 }

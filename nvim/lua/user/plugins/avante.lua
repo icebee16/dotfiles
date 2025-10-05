@@ -55,6 +55,11 @@ return {
         focus_on_apply = "ours",
       },
     },
+    system_prompt = "返答は必ず日本語で行ってください。",
+    rules = {
+      project_dir = ".avante/rules",
+      global_dir = "~/.config/avante/rules"
+    }
   },
 
   config = function(_, opts)
@@ -95,9 +100,15 @@ return {
       -- Make sure to set this up properly if you have lazy=true
       'MeanderingProgrammer/render-markdown.nvim',
       opts = {
-        file_types = { "markdown", "Avante" },
+        file_types = {
+          -- "markdown",
+          "Avante"
+        },
       },
-      ft = { "markdown", "Avante" },
+      ft = {
+        -- "markdown",
+        "Avante"
+      },
     },
   },
 }

@@ -23,6 +23,7 @@ return {
           "marksman",     -- Markdown
           "bashls",       -- Shell (sh, bash)
           "sqlls",        -- SQL
+          "html",         -- HTML
         },
         automatic_installation = true,
       })
@@ -108,8 +109,18 @@ return {
       -- SQL
       vim.lsp.config("sqlls", {capabilities = capabilities})
 
+      -- HTML
+      vim.lsp.config("html", {
+        capabilities = capabilities,
+        -- htmldjango 等も拾いたい場合は明示
+        filetypes = { "html", "templ", "htmldjango", "ejs" },
+        init_options = {
+          provideFormatter = true,  -- 任意（内蔵フォーマッタ使用）
+        },
+      })
+
       -- 有効化（手動 attach）
-      for _, server in ipairs({ "pyright", "ruff", "lua_ls", "marksman", "bashls", "sqlls" }) do
+      for _, server in ipairs({ "pyright", "ruff", "lua_ls", "marksman", "bashls", "sqlls", "html" }) do
         vim.lsp.enable(server)
       end
     end,

@@ -13,7 +13,7 @@ return {
     providers = {
       openai = {
         endpoint = "https://api.openai.com/v1",
-        model = "gpt-4o", -- your desired model (or use gpt-4o, etc.)
+        model = "gpt-4.1", -- your desired model (or use gpt-4o, etc.)
         api_key = os.getenv("OPENAI_API_KEY"),
         extra_request_body = {
           temperature = 0.75,
@@ -56,6 +56,7 @@ return {
       },
     },
     system_prompt = "返答は必ず日本語で行ってください。",
+    -- NOTE: rules files are optional; if none exist locally, this has no effect but keeps future extensibility.
     rules = {
       project_dir = ".avante/rules",
       global_dir = "~/.config/avante/rules"
